@@ -57,3 +57,4 @@ jobs:
           sonatypePassword: ${{ secrets.sonatypePassword }}
         with:
           arguments: :publishToMavenCentral
+        
