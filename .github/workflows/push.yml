@@ -1,12 +1,6 @@
 name: Main
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '*.md'
-      - '*.asciidoc'
   workflow_dispatch:
     inputs:
       reason:
@@ -43,7 +37,7 @@ jobs:
       - name: Execute tests
         uses: eskatos/gradle-command-action@v1
         with:
-          arguments: :check
+          arguments: ':check'
       - name: Store hprof files
         uses: actions/upload-artifact@v2
         if: failure()
@@ -56,5 +50,5 @@ jobs:
           sonatypeUsername: ${{ secrets.sonatypeUsername }}
           sonatypePassword: ${{ secrets.sonatypePassword }}
         with:
-          arguments: :publishToMavenCentral
+          arguments: ':publishToMavenCentral'
         
